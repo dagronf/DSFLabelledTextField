@@ -26,10 +26,27 @@ class ViewController: NSViewController {
 	@objc dynamic var tx: CGFloat = 0.0
 	@objc dynamic var ty: CGFloat = 0.0
 
+	@IBOutlet weak var dynamicStackView: NSStackView!
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
-		// Do any additional setup after loading the view.
+
+		// Add some fields dynamically
+
+		let a = DSFLabelledTextField()
+		a.translatesAutoresizingMaskIntoConstraints = false
+		a.label = "最初"
+		a.labelWidth = 45
+		a.placeholderString = "これが最初です"
+		dynamicStackView.addArrangedSubview(a)
+
+		let b = DSFLabelledTextField()
+		b.translatesAutoresizingMaskIntoConstraints = false
+		b.label = "二番目"
+		b.labelWidth = 45
+		b.placeholderString = "これは2番目です"
+		dynamicStackView.addArrangedSubview(b)
+
 	}
 
 	override var representedObject: Any? {

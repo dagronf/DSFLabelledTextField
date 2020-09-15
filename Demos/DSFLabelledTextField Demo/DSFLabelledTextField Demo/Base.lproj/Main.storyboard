@@ -1266,21 +1266,47 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
+                            <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="3" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qgx-5f-3fU">
+                                <rect key="frame" x="20" y="58" width="422" height="14"/>
+                                <subviews>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="WVx-xp-JVj">
+                                        <rect key="frame" x="-2" y="0.0" width="84" height="14"/>
+                                        <textFieldCell key="cell" controlSize="small" lineBreakMode="clipping" title="Dynamic Fields" id="auE-Bu-YY9">
+                                            <font key="font" metaFont="smallSystem"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                </subviews>
+                                <visibilityPriorities>
+                                    <integer value="1000"/>
+                                </visibilityPriorities>
+                                <customSpacing>
+                                    <real value="3.4028234663852886e+38"/>
+                                </customSpacing>
+                            </stackView>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="D4Q-fy-KHq" secondAttribute="trailing" constant="20" symbolic="YES" id="32Q-tr-VCd"/>
                             <constraint firstItem="D4Q-fy-KHq" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" symbolic="YES" id="7Zr-pF-klS"/>
+                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Qgx-5f-3fU" secondAttribute="bottom" constant="20" symbolic="YES" id="8rI-fg-nEP"/>
                             <constraint firstItem="D4Q-fy-KHq" firstAttribute="top" secondItem="ZN3-fc-dWP" secondAttribute="bottom" constant="18" id="BDY-ws-Gqp"/>
                             <constraint firstItem="Dah-h7-fCL" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" symbolic="YES" id="Esc-4L-OFP"/>
                             <constraint firstItem="nMP-Mr-xFp" firstAttribute="top" secondItem="Dah-h7-fCL" secondAttribute="bottom" constant="20" id="KXX-ew-3Jb"/>
                             <constraint firstItem="nMP-Mr-xFp" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" symbolic="YES" id="OD5-by-Bdf"/>
                             <constraint firstAttribute="trailing" secondItem="Dah-h7-fCL" secondAttribute="trailing" constant="20" symbolic="YES" id="QXF-9b-muV"/>
                             <constraint firstItem="ZN3-fc-dWP" firstAttribute="top" secondItem="nMP-Mr-xFp" secondAttribute="top" id="Tqf-eD-Mmt"/>
+                            <constraint firstAttribute="trailing" secondItem="Qgx-5f-3fU" secondAttribute="trailing" constant="20" symbolic="YES" id="aUH-WZ-uos"/>
+                            <constraint firstItem="Qgx-5f-3fU" firstAttribute="top" secondItem="D4Q-fy-KHq" secondAttribute="bottom" constant="18" id="bMM-8W-JPV"/>
                             <constraint firstAttribute="trailing" secondItem="ZN3-fc-dWP" secondAttribute="trailing" constant="20" symbolic="YES" id="ijS-rI-mqI"/>
+                            <constraint firstItem="Qgx-5f-3fU" firstAttribute="leading" secondItem="D4Q-fy-KHq" secondAttribute="leading" id="q7z-no-hhT"/>
                             <constraint firstItem="Dah-h7-fCL" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" symbolic="YES" id="vpB-rp-TR3"/>
                             <constraint firstItem="ZN3-fc-dWP" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="nMP-Mr-xFp" secondAttribute="trailing" constant="16" id="z6g-PA-7uk"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="dynamicStackView" destination="Qgx-5f-3fU" id="eVG-67-oXS"/>
+                    </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <userDefaultsController representsSharedInstance="YES" id="efe-TX-oiK"/>

@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "DSFLabelledTextField"
-  s.version      = "1.0.0"
+  s.version      = "1.0.1"
   s.summary      = "A simple macOS labelled text field using Swift"
   s.description  = <<-DESC
     A simple macOS labelled text field using Swift
