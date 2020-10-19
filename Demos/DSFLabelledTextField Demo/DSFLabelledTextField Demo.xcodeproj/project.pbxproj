@@ -3,18 +3,19 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		23AB08EC253E41AF000277E3 /* DSFLabelledTextField in Frameworks */ = {isa = PBXBuildFile; productRef = 23AB08EB253E41AF000277E3 /* DSFLabelledTextField */; };
 		23FC4125250F7B9F0055CF3B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23FC4124250F7B9F0055CF3B /* AppDelegate.swift */; };
 		23FC4127250F7B9F0055CF3B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23FC4126250F7B9F0055CF3B /* ViewController.swift */; };
 		23FC4129250F7BA00055CF3B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23FC4128250F7BA00055CF3B /* Assets.xcassets */; };
 		23FC412C250F7BA00055CF3B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23FC412A250F7BA00055CF3B /* Main.storyboard */; };
-		23FC4135250F7BB70055CF3B /* DSFLabelledTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23FC4134250F7BB70055CF3B /* DSFLabelledTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		23EF2AB2253E4166001C71F3 /* DSFLabelledTextField */ = {isa = PBXFileReference; lastKnownFileType = folder; name = DSFLabelledTextField; path = ../..; sourceTree = "<group>"; };
 		23FC4121250F7B9F0055CF3B /* DSFLabelledTextField Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DSFLabelledTextField Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		23FC4124250F7B9F0055CF3B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		23FC4126250F7B9F0055CF3B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,7 +23,6 @@
 		23FC412B250F7BA00055CF3B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		23FC412D250F7BA00055CF3B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		23FC412E250F7BA00055CF3B /* DSFLabelledTextField_Demo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DSFLabelledTextField_Demo.entitlements; sourceTree = "<group>"; };
-		23FC4134250F7BB70055CF3B /* DSFLabelledTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DSFLabelledTextField.swift; path = ../../../Sources/DSFLabelledTextField/DSFLabelledTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -30,17 +30,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23AB08EC253E41AF000277E3 /* DSFLabelledTextField in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		23AB08EA253E41AF000277E3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		23FC4118250F7B9F0055CF3B = {
 			isa = PBXGroup;
 			children = (
+				23EF2AB2253E4166001C71F3 /* DSFLabelledTextField */,
 				23FC4123250F7B9F0055CF3B /* DSFLabelledTextField Demo */,
 				23FC4122250F7B9F0055CF3B /* Products */,
+				23AB08EA253E41AF000277E3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -55,7 +65,6 @@
 		23FC4123250F7B9F0055CF3B /* DSFLabelledTextField Demo */ = {
 			isa = PBXGroup;
 			children = (
-				23FC4134250F7BB70055CF3B /* DSFLabelledTextField.swift */,
 				23FC4124250F7B9F0055CF3B /* AppDelegate.swift */,
 				23FC4126250F7B9F0055CF3B /* ViewController.swift */,
 				23FC4128250F7BA00055CF3B /* Assets.xcassets */,
@@ -80,8 +89,12 @@
 			buildRules = (
 			);
 			dependencies = (
+				23AB08E9253E41AA000277E3 /* PBXTargetDependency */,
 			);
 			name = "DSFLabelledTextField Demo";
+			packageProductDependencies = (
+				23AB08EB253E41AF000277E3 /* DSFLabelledTextField */,
+			);
 			productName = "DSFLabelledTextField Demo";
 			productReference = 23FC4121250F7B9F0055CF3B /* DSFLabelledTextField Demo.app */;
 			productType = "com.apple.product-type.application";
@@ -135,13 +148,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				23FC4135250F7BB70055CF3B /* DSFLabelledTextField.swift in Sources */,
 				23FC4127250F7B9F0055CF3B /* ViewController.swift in Sources */,
 				23FC4125250F7B9F0055CF3B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		23AB08E9253E41AA000277E3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 23AB08E8253E41AA000277E3 /* DSFLabelledTextField */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		23FC412A250F7BA00055CF3B /* Main.storyboard */ = {
@@ -334,6 +353,17 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		23AB08E8253E41AA000277E3 /* DSFLabelledTextField */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DSFLabelledTextField;
+		};
+		23AB08EB253E41AF000277E3 /* DSFLabelledTextField */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DSFLabelledTextField;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 23FC4119250F7B9F0055CF3B /* Project object */;
 }

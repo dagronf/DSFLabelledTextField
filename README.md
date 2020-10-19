@@ -41,11 +41,40 @@ Add the swift files from the `Sources/DSFLabelledTextField` subfolder to your pr
 * `labelWidth` : The width of the label.  If set to -1, fits the label size to the label text.
 * `labelAlignment` : The alignment of the label. Useful if you have multiple label fields that you want to synchronise the width for.  Defaults to `NSTextAlignment.center`
 
+## Grouping fields
+
+There are times where you might need to synchronise the width of the labels of a number of fields.  To do this, you can add the fields to a `DSFLabelledTextFieldGroup` instance and the field labels will size to fit the maximum width of all the labels in the group.
+
+### Example
+
+```swift
+
+@IBOutlet weak var redField: DSFLabelledTextField!
+@IBOutlet weak var greenField: DSFLabelledTextField!
+@IBOutlet weak var blueField: DSFLabelledTextField!
+let colorGroup = DSFLabelledTextFieldGroup()
+
+override func viewDidLoad() {
+   super.viewDidLoad()
+
+   /// Sync the widths of the red, green and blue labels
+   self.colorGroup.add(fields: redField, greenField, blueField)
+}
+
+```
 
 ## More screenshots
 
 ![](https://github.com/dagronf/dagronf.github.io/raw/master/art/projects/DSFLabelledTextField/s3.png)
 ![](https://github.com/dagronf/dagronf.github.io/raw/master/art/projects/DSFLabelledTextField/s4.png)
+
+## History
+
+* `1.1.0`: Added support for label grouping
+* `1.0.2`: Added label alignment (left, right, center etc)
+* `1.0.1`: Demonstrate dynamically create
+* `1.0.0`: Initial release
+
 
 ## License
 

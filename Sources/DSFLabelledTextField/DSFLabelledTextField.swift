@@ -28,8 +28,8 @@
 
 import AppKit
 
+/// A text field containing an embedded label field
 @IBDesignable public class DSFLabelledTextField: NSTextField {
-
 	/// Use round rects when drawing the border
 	@IBInspectable public var drawsRoundedEdges: Bool = true {
 		didSet {
@@ -50,12 +50,14 @@ import AppKit
 	@IBInspectable public var label: String = "" {
 		didSet {
 			self.textLabel.stringValue = self.label
+			self.groupSync()
+
 			self.needsLayout = true
 		}
 	}
 
 	/// The color of the text for the label
-	@IBInspectable public var labelForegroundColor: NSColor = NSColor.secondaryLabelColor {
+	@IBInspectable public var labelForegroundColor = NSColor.secondaryLabelColor {
 		didSet {
 			self.textLabel.textColor = self.labelForegroundColor
 			self.needsDisplay = true
@@ -63,7 +65,7 @@ import AppKit
 	}
 
 	/// The background color for the label
-	@IBInspectable public var labelBackgroundColor: NSColor = NSColor.windowBackgroundColor {
+	@IBInspectable public var labelBackgroundColor = NSColor.windowBackgroundColor {
 		didSet {
 			self.customCell.labelBackgroundColor = self.labelBackgroundColor
 			self.needsDisplay = true
@@ -73,8 +75,8 @@ import AppKit
 	/// The width of the label section.  If -1, fits to the size of the text within the label
 	@IBInspectable public var labelWidth: CGFloat = -1 {
 		didSet {
-			self.widthConstraint.isActive = (labelWidth != -1)
-			if labelWidth != -1 {
+			self.widthConstraint.isActive = (self.labelWidth != -1)
+			if self.labelWidth != -1 {
 				self.widthConstraint.constant = self.labelWidth
 				self.customCell.labelWidth = self.labelWidth
 			}
@@ -86,9 +88,15 @@ import AppKit
 	@IBInspectable public var labelAlignment: Int = 2 {
 		didSet {
 			if let align = NSTextAlignment(rawValue: self.labelAlignment) {
-				self.textLabel.alignment = align
-				self.needsDisplay = true
+				self.labelAlignmentRaw = align
 			}
+		}
+	}
+
+	public var labelAlignmentRaw: NSTextAlignment = .left {
+		didSet {
+			self.textLabel.alignment = labelAlignmentRaw
+			self.needsDisplay = true
 		}
 	}
 
@@ -105,6 +113,15 @@ import AppKit
 	}
 
 	// MARK: Private Properties
+
+	// The group IF this text field is a member of a group, otherwise nil.
+	// Held weakly so that if the group goes away label can still operate
+	internal weak var group: DSFLabelledTextFieldGroup? = nil
+
+	// Sync the label widths within the group IF this label is a group member
+	internal func groupSync() {
+		self.group?.syncWidths()
+	}
 
 	// Width constraint for the embedded label
 	private var widthConstraint: NSLayoutConstraint!
@@ -218,21 +235,25 @@ private extension DSFLabelledTextField {
 	}
 }
 
-extension DSFLabelledTextField {
-	override public func drawFocusRingMask() {
+public extension DSFLabelledTextField {
+	/// Returns the size of the text within the label regardless of any width constraints set.
+	var labelTextSize: CGSize {
+		return self.textLabel.fittingSize
+	}
+
+	override func drawFocusRingMask() {
 		let pth = NSBezierPath(roundedRect: self.bounds.insetBy(dx: 0.5, dy: 0.5), xRadius: 2, yRadius: 2)
 		pth.fill()
 	}
 
-	override public func layout() {
+	override func layout() {
 		super.layout()
 
-		// let fit = self.textLabel.sizeToFit()
-		if labelWidth == -1 {
+		if self.labelWidth == -1 {
 			self.customCell.labelWidth = self.textLabel.fittingSize.width
 		}
 		else {
-			self.customCell.labelWidth = self.labelWidth + ((self.textLabel.alignment == .right) ? 3.0 : 0.0)
+			self.customCell.labelWidth = self.labelWidth + ((self.textLabel.alignment != .center) ? 3.0 : 0.0)
 		}
 	}
 
@@ -243,7 +264,6 @@ extension DSFLabelledTextField {
 }
 
 private class DSFPlainTextFieldCell: NSTextFieldCell {
-
 	@inlinable var isRTL: Bool {
 		return self.userInterfaceLayoutDirection == .rightToLeft
 	}
@@ -259,7 +279,7 @@ private class DSFPlainTextFieldCell: NSTextFieldCell {
 
 		newRect.size.width -= offset
 
-		if isRTL {
+		if self.isRTL {
 			newRect.origin.x = newRect.minX
 		}
 		else {
@@ -278,11 +298,11 @@ private class DSFPlainTextFieldCell: NSTextFieldCell {
 	}
 
 	override func select(withFrame rect: NSRect, in controlView: NSView, editor textObj: NSText, delegate: Any?, start selStart: Int, length selLength: Int) {
-		super.select(withFrame: tweak(rect), in: controlView, editor: textObj, delegate: delegate, start: selStart, length: selLength)
+		super.select(withFrame: self.tweak(rect), in: controlView, editor: textObj, delegate: delegate, start: selStart, length: selLength)
 	}
 
 	override func edit(withFrame rect: NSRect, in controlView: NSView, editor textObj: NSText, delegate: Any?, event: NSEvent?) {
-		super.edit(withFrame: tweak(rect), in: controlView, editor: textObj, delegate: delegate, event: event)
+		super.edit(withFrame: self.tweak(rect), in: controlView, editor: textObj, delegate: delegate, event: event)
 	}
 
 	override func draw(withFrame cellFrame: NSRect, in controlView: NSView) {
@@ -291,7 +311,7 @@ private class DSFPlainTextFieldCell: NSTextFieldCell {
 		bg.setFill()
 
 		let pth: NSBezierPath
-		if roundedEdges {
+		if self.roundedEdges {
 			pth = NSBezierPath(roundedRect: cellFrame.insetBy(dx: 1, dy: 1), xRadius: 2, yRadius: 2)
 			pth.lineWidth = 1.5
 		}
@@ -304,12 +324,13 @@ private class DSFPlainTextFieldCell: NSTextFieldCell {
 
 		pth.setClip()
 
-		if drawsLabelBackground {
+		if self.drawsLabelBackground {
 			self.labelBackgroundColor.setFill()
 
 			let bit = cellFrame.divided(
 				atDistance: self.labelWidth,
-				from: isRTL ? .maxXEdge : .minXEdge).slice
+				from: self.isRTL ? .maxXEdge : .minXEdge
+			).slice
 			bit.fill()
 
 			let line = NSBezierPath()
@@ -319,7 +340,7 @@ private class DSFPlainTextFieldCell: NSTextFieldCell {
 			line.stroke()
 		}
 
-		self.drawInterior(withFrame: tweak(cellFrame), in: controlView)
+		self.drawInterior(withFrame: self.tweak(cellFrame), in: controlView)
 	}
 }
 

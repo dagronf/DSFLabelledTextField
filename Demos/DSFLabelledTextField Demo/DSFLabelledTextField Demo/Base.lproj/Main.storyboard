@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="17503.1" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17503.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17156"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -712,7 +712,7 @@
                             <stackView distribution="fillEqually" orientation="vertical" alignment="centerX" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dah-h7-fCL">
                                 <rect key="frame" x="20" y="375" width="422" height="79"/>
                                 <subviews>
-                                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="500" placeholderIntrinsicWidth="400" placeholderIntrinsicHeight="21" translatesAutoresizingMaskIntoConstraints="NO" id="FIL-9f-k02" customClass="DSFLabelledTextField" customModule="DSFLabelledTextField_Demo" customModuleProvider="target">
+                                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="500" placeholderIntrinsicWidth="400" placeholderIntrinsicHeight="21" translatesAutoresizingMaskIntoConstraints="NO" id="FIL-9f-k02" customClass="DSFLabelledTextField" customModule="DSFLabelledTextField">
                                         <rect key="frame" x="11" y="58" width="400" height="21"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="Red placeholder string" drawsBackground="YES" id="GTL-Gg-AP5">
                                             <font key="font" usesAppearanceFont="YES"/>
@@ -727,15 +727,12 @@
                                             <userDefinedRuntimeAttribute type="color" keyPath="labelForegroundColor">
                                                 <color key="value" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="labelWidth">
-                                                <real key="value" value="50"/>
-                                            </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="labelAlignment">
                                                 <integer key="value" value="1"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </textField>
-                                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="500" placeholderIntrinsicWidth="400" placeholderIntrinsicHeight="21" translatesAutoresizingMaskIntoConstraints="NO" id="6AK-0c-x2y" customClass="DSFLabelledTextField" customModule="DSFLabelledTextField_Demo" customModuleProvider="target">
+                                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="500" placeholderIntrinsicWidth="400" placeholderIntrinsicHeight="21" translatesAutoresizingMaskIntoConstraints="NO" id="6AK-0c-x2y" customClass="DSFLabelledTextField" customModule="DSFLabelledTextField">
                                         <rect key="frame" x="11" y="29" width="400" height="21"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="Green placeholder string" drawsBackground="YES" id="8fB-x9-aWK">
                                             <font key="font" usesAppearanceFont="YES"/>
@@ -750,15 +747,12 @@
                                             <userDefinedRuntimeAttribute type="color" keyPath="labelForegroundColor">
                                                 <color key="value" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="labelWidth">
-                                                <real key="value" value="50"/>
-                                            </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="labelAlignment">
                                                 <integer key="value" value="1"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </textField>
-                                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="500" placeholderIntrinsicWidth="400" placeholderIntrinsicHeight="21" translatesAutoresizingMaskIntoConstraints="NO" id="59N-t3-eAG" customClass="DSFLabelledTextField" customModule="DSFLabelledTextField_Demo" customModuleProvider="target">
+                                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="500" placeholderIntrinsicWidth="400" placeholderIntrinsicHeight="21" translatesAutoresizingMaskIntoConstraints="NO" id="59N-t3-eAG" customClass="DSFLabelledTextField" customModule="DSFLabelledTextField">
                                         <rect key="frame" x="11" y="0.0" width="400" height="21"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="Blue placeholder string" drawsBackground="YES" id="xw6-g2-YRB">
                                             <font key="font" usesAppearanceFont="YES"/>
@@ -772,9 +766,6 @@
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="color" keyPath="labelForegroundColor">
                                                 <color key="value" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="labelWidth">
-                                                <real key="value" value="50"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="labelAlignment">
                                                 <integer key="value" value="1"/>
@@ -819,7 +810,7 @@
                                         </columns>
                                         <gridCells>
                                             <gridCell row="vey-6K-1YJ" column="VKP-ng-4xL" id="hQT-Hg-ner">
-                                                <textField key="contentView" verticalHuggingPriority="750" horizontalCompressionResistancePriority="500" translatesAutoresizingMaskIntoConstraints="NO" id="F1n-nL-hiU" customClass="DSFLabelledTextField" customModule="DSFLabelledTextField_Demo" customModuleProvider="target">
+                                                <textField key="contentView" verticalHuggingPriority="750" horizontalCompressionResistancePriority="500" translatesAutoresizingMaskIntoConstraints="NO" id="F1n-nL-hiU" customClass="DSFLabelledTextField" customModule="DSFLabelledTextField">
                                                     <rect key="frame" x="0.0" y="24" width="100" height="21"/>
                                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="M4C-5Z-hf6">
                                                         <font key="font" usesAppearanceFont="YES"/>
@@ -829,7 +820,7 @@
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="string" keyPath="label" value="X"/>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="labelWidth">
-                                                            <real key="value" value="20"/>
+                                                            <real key="value" value="30"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                     <connections>
@@ -848,7 +839,7 @@
                                             </gridCell>
                                             <gridCell row="vey-6K-1YJ" column="7rc-zm-GJQ" id="mX6-L4-G21"/>
                                             <gridCell row="vey-6K-1YJ" column="ghh-VN-FEs" id="4I3-PO-hEB">
-                                                <textField key="contentView" verticalHuggingPriority="750" horizontalCompressionResistancePriority="500" translatesAutoresizingMaskIntoConstraints="NO" id="ACf-Zp-DsB" customClass="DSFLabelledTextField" customModule="DSFLabelledTextField_Demo" customModuleProvider="target">
+                                                <textField key="contentView" verticalHuggingPriority="750" horizontalCompressionResistancePriority="500" translatesAutoresizingMaskIntoConstraints="NO" id="ACf-Zp-DsB" customClass="DSFLabelledTextField" customModule="DSFLabelledTextField">
                                                     <rect key="frame" x="123" y="24" width="100" height="21"/>
                                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="sgZ-b7-FoT">
                                                         <font key="font" usesAppearanceFont="YES"/>
@@ -858,7 +849,7 @@
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="string" keyPath="label" value="Y"/>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="labelWidth">
-                                                            <real key="value" value="20"/>
+                                                            <real key="value" value="30"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                     <connections>
@@ -876,7 +867,7 @@
                                                 </stepper>
                                             </gridCell>
                                             <gridCell row="huO-uK-cWt" column="VKP-ng-4xL" id="7HC-wW-aUq">
-                                                <textField key="contentView" verticalHuggingPriority="750" horizontalCompressionResistancePriority="500" translatesAutoresizingMaskIntoConstraints="NO" id="BRd-uN-hs7" customClass="DSFLabelledTextField" customModule="DSFLabelledTextField_Demo" customModuleProvider="target">
+                                                <textField key="contentView" verticalHuggingPriority="750" horizontalCompressionResistancePriority="500" translatesAutoresizingMaskIntoConstraints="NO" id="BRd-uN-hs7" customClass="DSFLabelledTextField" customModule="DSFLabelledTextField">
                                                     <rect key="frame" x="0.0" y="0.0" width="100" height="21"/>
                                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="IMo-5Z-LSX">
                                                         <font key="font" usesAppearanceFont="YES"/>
@@ -886,7 +877,7 @@
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="string" keyPath="label" value="W"/>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="labelWidth">
-                                                            <real key="value" value="20"/>
+                                                            <real key="value" value="30"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                     <connections>
@@ -905,7 +896,7 @@
                                             </gridCell>
                                             <gridCell row="huO-uK-cWt" column="7rc-zm-GJQ" id="2t7-YD-VvW"/>
                                             <gridCell row="huO-uK-cWt" column="ghh-VN-FEs" id="r6i-c3-SFD">
-                                                <textField key="contentView" verticalHuggingPriority="750" horizontalCompressionResistancePriority="500" translatesAutoresizingMaskIntoConstraints="NO" id="QUa-eF-Jox" customClass="DSFLabelledTextField" customModule="DSFLabelledTextField_Demo" customModuleProvider="target">
+                                                <textField key="contentView" verticalHuggingPriority="750" horizontalCompressionResistancePriority="500" translatesAutoresizingMaskIntoConstraints="NO" id="QUa-eF-Jox" customClass="DSFLabelledTextField" customModule="DSFLabelledTextField">
                                                     <rect key="frame" x="123" y="0.0" width="100" height="21"/>
                                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="esb-uF-Xus">
                                                         <font key="font" usesAppearanceFont="YES"/>
@@ -915,7 +906,7 @@
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="string" keyPath="label" value="H"/>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="labelWidth">
-                                                            <real key="value" value="20"/>
+                                                            <real key="value" value="30"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                     <connections>
@@ -957,7 +948,7 @@
                                         </columns>
                                         <gridCells>
                                             <gridCell row="TLK-xn-Kcn" column="9O2-e6-aPQ" id="5ZB-HZ-HZi">
-                                                <textField key="contentView" verticalHuggingPriority="750" horizontalCompressionResistancePriority="500" translatesAutoresizingMaskIntoConstraints="NO" id="Vsq-ww-Rbq" customClass="DSFLabelledTextField" customModule="DSFLabelledTextField_Demo" customModuleProvider="target">
+                                                <textField key="contentView" verticalHuggingPriority="750" horizontalCompressionResistancePriority="500" translatesAutoresizingMaskIntoConstraints="NO" id="Vsq-ww-Rbq" customClass="DSFLabelledTextField" customModule="DSFLabelledTextField">
                                                     <rect key="frame" x="0.0" y="24" width="100" height="21"/>
                                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="Wgl-sS-UeI">
                                                         <font key="font" usesAppearanceFont="YES"/>
@@ -986,7 +977,7 @@
                                             </gridCell>
                                             <gridCell row="TLK-xn-Kcn" column="miC-Ij-Yru" id="pzQ-9R-giQ"/>
                                             <gridCell row="TLK-xn-Kcn" column="u84-Cm-rL8" id="neP-K3-eaM">
-                                                <textField key="contentView" verticalHuggingPriority="750" horizontalCompressionResistancePriority="500" translatesAutoresizingMaskIntoConstraints="NO" id="wig-xn-bnU" customClass="DSFLabelledTextField" customModule="DSFLabelledTextField_Demo" customModuleProvider="target">
+                                                <textField key="contentView" verticalHuggingPriority="750" horizontalCompressionResistancePriority="500" translatesAutoresizingMaskIntoConstraints="NO" id="wig-xn-bnU" customClass="DSFLabelledTextField" customModule="DSFLabelledTextField">
                                                     <rect key="frame" x="123" y="24" width="100" height="21"/>
                                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="B1A-zA-udY">
                                                         <font key="font" usesAppearanceFont="YES"/>
@@ -1014,7 +1005,7 @@
                                                 </stepper>
                                             </gridCell>
                                             <gridCell row="pkC-bK-dn8" column="9O2-e6-aPQ" id="1th-FM-ENz">
-                                                <textField key="contentView" verticalHuggingPriority="750" horizontalCompressionResistancePriority="500" translatesAutoresizingMaskIntoConstraints="NO" id="g0M-e0-Xy8" customClass="DSFLabelledTextField" customModule="DSFLabelledTextField_Demo" customModuleProvider="target">
+                                                <textField key="contentView" verticalHuggingPriority="750" horizontalCompressionResistancePriority="500" translatesAutoresizingMaskIntoConstraints="NO" id="g0M-e0-Xy8" customClass="DSFLabelledTextField" customModule="DSFLabelledTextField">
                                                     <rect key="frame" x="0.0" y="0.0" width="100" height="21"/>
                                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="JLA-ZB-B4O">
                                                         <font key="font" usesAppearanceFont="YES"/>
@@ -1043,7 +1034,7 @@
                                             </gridCell>
                                             <gridCell row="pkC-bK-dn8" column="miC-Ij-Yru" id="Ihl-qY-YGt"/>
                                             <gridCell row="pkC-bK-dn8" column="u84-Cm-rL8" id="AXK-cM-HtZ">
-                                                <textField key="contentView" verticalHuggingPriority="750" horizontalCompressionResistancePriority="500" translatesAutoresizingMaskIntoConstraints="NO" id="isM-XK-GkJ" customClass="DSFLabelledTextField" customModule="DSFLabelledTextField_Demo" customModuleProvider="target">
+                                                <textField key="contentView" verticalHuggingPriority="750" horizontalCompressionResistancePriority="500" translatesAutoresizingMaskIntoConstraints="NO" id="isM-XK-GkJ" customClass="DSFLabelledTextField" customModule="DSFLabelledTextField">
                                                     <rect key="frame" x="123" y="0.0" width="100" height="21"/>
                                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="Gga-D0-9yu">
                                                         <font key="font" usesAppearanceFont="YES"/>
@@ -1097,7 +1088,7 @@
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
-                                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ndo-Ys-1jg" customClass="DSFLabelledTextField" customModule="DSFLabelledTextField_Demo" customModuleProvider="target">
+                                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ndo-Ys-1jg" customClass="DSFLabelledTextField" customModule="DSFLabelledTextField">
                                         <rect key="frame" x="0.0" y="120" width="80" height="19"/>
                                         <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="right" drawsBackground="YES" id="nlk-4n-3ZR">
                                             <numberFormatter key="formatter" formatterBehavior="custom10_4" usesGroupingSeparator="NO" formatWidth="-1" groupingSize="0" minimumIntegerDigits="1" maximumIntegerDigits="42" minimumFractionDigits="2" maximumFractionDigits="2" id="1Xu-NW-zX2"/>
@@ -1119,7 +1110,7 @@
                                             <binding destination="XfG-lQ-9wD" name="value" keyPath="self.ta" id="4hw-CX-xZ1"/>
                                         </connections>
                                     </textField>
-                                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="3v8-5b-Dtc" customClass="DSFLabelledTextField" customModule="DSFLabelledTextField_Demo" customModuleProvider="target">
+                                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="3v8-5b-Dtc" customClass="DSFLabelledTextField" customModule="DSFLabelledTextField">
                                         <rect key="frame" x="0.0" y="96" width="80" height="19"/>
                                         <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="right" drawsBackground="YES" id="vvU-cO-DGq">
                                             <numberFormatter key="formatter" formatterBehavior="custom10_4" usesGroupingSeparator="NO" formatWidth="-1" groupingSize="0" minimumIntegerDigits="1" maximumIntegerDigits="42" minimumFractionDigits="2" maximumFractionDigits="2" id="tlO-U1-UNn"/>
@@ -1141,7 +1132,7 @@
                                             <binding destination="XfG-lQ-9wD" name="value" keyPath="self.tb" id="Fuu-6Z-Zm0"/>
                                         </connections>
                                     </textField>
-                                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="KTw-Ne-sWA" customClass="DSFLabelledTextField" customModule="DSFLabelledTextField_Demo" customModuleProvider="target">
+                                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="KTw-Ne-sWA" customClass="DSFLabelledTextField" customModule="DSFLabelledTextField">
                                         <rect key="frame" x="0.0" y="72" width="80" height="19"/>
                                         <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="right" drawsBackground="YES" id="UHR-Xl-4gR">
                                             <numberFormatter key="formatter" formatterBehavior="custom10_4" usesGroupingSeparator="NO" formatWidth="-1" groupingSize="0" minimumIntegerDigits="1" maximumIntegerDigits="42" minimumFractionDigits="2" maximumFractionDigits="2" id="cQm-vw-3vf"/>
@@ -1163,7 +1154,7 @@
                                             <binding destination="XfG-lQ-9wD" name="value" keyPath="self.tc" id="SVg-ke-V4e"/>
                                         </connections>
                                     </textField>
-                                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="tSN-va-5L7" customClass="DSFLabelledTextField" customModule="DSFLabelledTextField_Demo" customModuleProvider="target">
+                                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="tSN-va-5L7" customClass="DSFLabelledTextField" customModule="DSFLabelledTextField">
                                         <rect key="frame" x="0.0" y="48" width="80" height="19"/>
                                         <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="right" drawsBackground="YES" id="Asg-c5-7gB">
                                             <numberFormatter key="formatter" formatterBehavior="custom10_4" usesGroupingSeparator="NO" formatWidth="-1" groupingSize="0" minimumIntegerDigits="1" maximumIntegerDigits="42" minimumFractionDigits="2" maximumFractionDigits="2" id="QF0-SU-faE"/>
@@ -1185,7 +1176,7 @@
                                             <binding destination="XfG-lQ-9wD" name="value" keyPath="self.td" id="Par-PN-oP0"/>
                                         </connections>
                                     </textField>
-                                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ElU-Lo-qDm" customClass="DSFLabelledTextField" customModule="DSFLabelledTextField_Demo" customModuleProvider="target">
+                                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ElU-Lo-qDm" customClass="DSFLabelledTextField" customModule="DSFLabelledTextField">
                                         <rect key="frame" x="0.0" y="24" width="80" height="19"/>
                                         <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="right" drawsBackground="YES" id="4ZI-8N-dFY">
                                             <numberFormatter key="formatter" formatterBehavior="custom10_4" usesGroupingSeparator="NO" formatWidth="-1" groupingSize="0" minimumIntegerDigits="1" maximumIntegerDigits="42" minimumFractionDigits="2" maximumFractionDigits="2" id="C01-JN-x0z"/>
@@ -1207,7 +1198,7 @@
                                             <binding destination="XfG-lQ-9wD" name="value" keyPath="self.tx" id="xAq-Xn-HPo"/>
                                         </connections>
                                     </textField>
-                                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="JkX-KG-2OA" customClass="DSFLabelledTextField" customModule="DSFLabelledTextField_Demo" customModuleProvider="target">
+                                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="JkX-KG-2OA" customClass="DSFLabelledTextField" customModule="DSFLabelledTextField">
                                         <rect key="frame" x="0.0" y="0.0" width="80" height="19"/>
                                         <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="right" drawsBackground="YES" id="UTy-Bs-zAj">
                                             <numberFormatter key="formatter" formatterBehavior="custom10_4" usesGroupingSeparator="NO" formatWidth="-1" groupingSize="0" minimumIntegerDigits="1" maximumIntegerDigits="42" minimumFractionDigits="2" maximumFractionDigits="2" id="RSu-kb-2Rp"/>
@@ -1252,7 +1243,7 @@
                                     <real value="3.4028234663852886e+38"/>
                                 </customSpacing>
                             </stackView>
-                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="D4Q-fy-KHq" customClass="DSFLabelledTextField" customModule="DSFLabelledTextField_Demo" customModuleProvider="target">
+                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="D4Q-fy-KHq" customClass="DSFLabelledTextField" customModule="DSFLabelledTextField">
                                 <rect key="frame" x="20" y="90" width="422" height="87"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="87" id="2r4-zY-KBI"/>
@@ -1314,7 +1305,10 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="blueField" destination="59N-t3-eAG" id="bCc-FM-3Hy"/>
                         <outlet property="dynamicStackView" destination="Qgx-5f-3fU" id="eVG-67-oXS"/>
+                        <outlet property="greenField" destination="6AK-0c-x2y" id="xuO-Vo-lLm"/>
+                        <outlet property="redField" destination="FIL-9f-k02" id="gJ2-7l-c5n"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
