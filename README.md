@@ -39,6 +39,8 @@ Add the swift files from the `Sources/DSFLabelledTextField` subfolder to your pr
 * `labelForegroundColor` : The color of the label text
 * `labelBackgroundColor` : The color behind the label
 * `labelWidth` : The width of the label.  If set to -1, fits the label size to the label text.
+* `labelAlignment` : The alignment of the label. Useful if you have multiple label fields that you want to synchronise the width for.  Defaults to `NSTextAlignment.center`
+
 
 ## More screenshots
 

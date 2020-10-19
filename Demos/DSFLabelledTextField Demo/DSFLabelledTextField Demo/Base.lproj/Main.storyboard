@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="17154" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="17503.1" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17503.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -730,6 +730,9 @@
                                             <userDefinedRuntimeAttribute type="number" keyPath="labelWidth">
                                                 <real key="value" value="50"/>
                                             </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="labelAlignment">
+                                                <integer key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </textField>
                                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="500" placeholderIntrinsicWidth="400" placeholderIntrinsicHeight="21" translatesAutoresizingMaskIntoConstraints="NO" id="6AK-0c-x2y" customClass="DSFLabelledTextField" customModule="DSFLabelledTextField_Demo" customModuleProvider="target">
@@ -750,6 +753,9 @@
                                             <userDefinedRuntimeAttribute type="number" keyPath="labelWidth">
                                                 <real key="value" value="50"/>
                                             </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="labelAlignment">
+                                                <integer key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </textField>
                                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="500" placeholderIntrinsicWidth="400" placeholderIntrinsicHeight="21" translatesAutoresizingMaskIntoConstraints="NO" id="59N-t3-eAG" customClass="DSFLabelledTextField" customModule="DSFLabelledTextField_Demo" customModuleProvider="target">
@@ -769,6 +775,9 @@
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="labelWidth">
                                                 <real key="value" value="50"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="labelAlignment">
+                                                <integer key="value" value="1"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </textField>

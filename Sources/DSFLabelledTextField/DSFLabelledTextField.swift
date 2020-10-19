@@ -82,6 +82,16 @@ import AppKit
 		}
 	}
 
+	/// The label alignment.  Defaults to center
+	@IBInspectable public var labelAlignment: Int = 2 {
+		didSet {
+			if let align = NSTextAlignment(rawValue: self.labelAlignment) {
+				self.textLabel.alignment = align
+				self.needsDisplay = true
+			}
+		}
+	}
+
 	// MARK: Initializers
 
 	override public init(frame frameRect: NSRect) {
@@ -222,7 +232,7 @@ extension DSFLabelledTextField {
 			self.customCell.labelWidth = self.textLabel.fittingSize.width
 		}
 		else {
-			self.customCell.labelWidth = self.labelWidth
+			self.customCell.labelWidth = self.labelWidth + ((self.textLabel.alignment == .right) ? 3.0 : 0.0)
 		}
 	}
 
