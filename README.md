@@ -70,11 +70,11 @@ override func viewDidLoad() {
 
 ## History
 
+* `1.2.0`: Fixed issue with `@IBInspectable` not appearing in Interface Builder. Better 'enabled' visibility.
 * `1.1.0`: Added support for label grouping
 * `1.0.2`: Added label alignment (left, right, center etc)
 * `1.0.1`: Demonstrate dynamically create
 * `1.0.0`: Initial release
-
 
 ## License
 

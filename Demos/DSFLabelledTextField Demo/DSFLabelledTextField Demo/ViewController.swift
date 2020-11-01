@@ -38,6 +38,8 @@ class ViewController: NSViewController {
 	let dynamicGroup = DSFLabelledTextFieldGroup()
 	@IBOutlet weak var dynamicStackView: NSStackView!
 
+	@objc dynamic var labelIsEnabled = false
+
 	override func viewDidLoad() {
 		super.viewDidLoad()
 

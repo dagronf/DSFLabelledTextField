@@ -28,6 +28,9 @@
 
 import AppKit
 
+// The alpha value used for drawing when the control is disabled.
+private let alphaValueForDisabled: CGFloat = 0.4
+
 /// A text field containing an embedded label field
 @IBDesignable public class DSFLabelledTextField: NSTextField {
 	/// Use round rects when drawing the border
@@ -116,7 +119,7 @@ import AppKit
 
 	// The group IF this text field is a member of a group, otherwise nil.
 	// Held weakly so that if the group goes away label can still operate
-	internal weak var group: DSFLabelledTextFieldGroup? = nil
+	internal weak var group: DSFLabelledTextFieldGroup?
 
 	// Sync the label widths within the group IF this label is a group member
 	internal func groupSync() {
@@ -232,10 +235,41 @@ private extension DSFLabelledTextField {
 
 		self.addConstraint(self.widthConstraint)
 		self.widthConstraint.isActive = self.labelWidth != -1
+
+		self.syncLabelVisibility()
 	}
 }
 
 public extension DSFLabelledTextField {
+	private func syncLabelVisibility() {
+		self.textLabel.alphaValue = self.isEnabled ? 1.0 : alphaValueForDisabled
+		self.needsDisplay = true
+	}
+
+	override func viewDidMoveToWindow() {
+		super.viewDidMoveToWindow()
+		self.addObserver(self, forKeyPath: "enabled", options: .new, context: nil)
+
+		self.syncLabelVisibility()
+	}
+
+	override func viewWillMove(toWindow newWindow: NSWindow?) {
+		super.viewWillMove(toWindow: newWindow)
+		guard let _ = newWindow else {
+			self.removeObserver(self, forKeyPath: "enabled")
+			return
+		}
+	}
+
+	override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey: Any]?, context: UnsafeMutableRawPointer?) {
+		if keyPath == "enabled" {
+			self.syncLabelVisibility()
+		}
+		else {
+			super.observeValue(forKeyPath: keyPath, of: object, change: change, context: context)
+		}
+	}
+
 	/// Returns the size of the text within the label regardless of any width constraints set.
 	var labelTextSize: CGSize {
 		return self.textLabel.fittingSize
@@ -263,6 +297,18 @@ public extension DSFLabelledTextField {
 	}
 }
 
+public extension DSFLabelledTextField {
+	override func accessibilityValueDescription() -> String? {
+		let labelled = "Text field is labelled '\(self.label)'"
+		return labelled
+	}
+
+	override func accessibilityRoleDescription() -> String? {
+		let labelled = "Text field is labelled '\(self.label)'"
+		return labelled
+	}
+}
+
 private class DSFPlainTextFieldCell: NSTextFieldCell {
 	@inlinable var isRTL: Bool {
 		return self.userInterfaceLayoutDirection == .rightToLeft
@@ -272,6 +318,13 @@ private class DSFPlainTextFieldCell: NSTextFieldCell {
 	fileprivate var drawsLabelBackground: Bool = true
 	fileprivate var roundedEdges: Bool = true
 	fileprivate var labelBackgroundColor = NSColor.windowBackgroundColor
+
+	/// The label background color, taking into account label state
+	@inlinable var currentLabelBackgroundColor: NSColor {
+		return isEnabled ?
+			self.labelBackgroundColor :
+			self.labelBackgroundColor.withAlphaComponent(alphaValueForDisabled)
+	}
 
 	private func tweak(_ rect: CGRect) -> NSRect {
 		let offset: CGFloat = self.labelWidth
@@ -307,7 +360,10 @@ private class DSFPlainTextFieldCell: NSTextFieldCell {
 
 	override func draw(withFrame cellFrame: NSRect, in controlView: NSView) {
 		NSColor.gridColor.setStroke()
-		let bg = self.backgroundColor ?? NSColor.placeholderTextColor
+		var bg = self.backgroundColor ?? NSColor.placeholderTextColor
+		if !isEnabled {
+			bg = bg.withAlphaComponent(alphaValueForDisabled)
+		}
 		bg.setFill()
 
 		let pth: NSBezierPath
@@ -325,7 +381,7 @@ private class DSFPlainTextFieldCell: NSTextFieldCell {
 		pth.setClip()
 
 		if self.drawsLabelBackground {
-			self.labelBackgroundColor.setFill()
+			self.currentLabelBackgroundColor.setFill()
 
 			let bit = cellFrame.divided(
 				atDistance: self.labelWidth,
