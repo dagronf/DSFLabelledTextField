@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17156"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17506"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -707,13 +707,13 @@
             <objects>
                 <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="DSFLabelledTextField_Demo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" translatesAutoresizingMaskIntoConstraints="NO" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="470" height="496"/>
+                        <rect key="frame" x="0.0" y="0.0" width="476" height="496"/>
                         <subviews>
                             <stackView distribution="fillEqually" orientation="vertical" alignment="centerX" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dah-h7-fCL">
-                                <rect key="frame" x="20" y="397" width="430" height="79"/>
+                                <rect key="frame" x="20" y="397" width="436" height="79"/>
                                 <subviews>
                                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="500" placeholderIntrinsicWidth="400" placeholderIntrinsicHeight="21" translatesAutoresizingMaskIntoConstraints="NO" id="FIL-9f-k02" customClass="DSFLabelledTextField" customModule="DSFLabelledTextField">
-                                        <rect key="frame" x="15" y="58" width="400" height="21"/>
+                                        <rect key="frame" x="18" y="58" width="400" height="21"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="Red placeholder string" drawsBackground="YES" id="GTL-Gg-AP5">
                                             <font key="font" usesAppearanceFont="YES"/>
                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -722,7 +722,7 @@
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="string" keyPath="label" value="Red"/>
                                             <userDefinedRuntimeAttribute type="color" keyPath="labelBackgroundColor">
-                                                <color key="value" name="systemRedColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="value" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="color" keyPath="labelForegroundColor">
                                                 <color key="value" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -733,7 +733,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </textField>
                                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="500" placeholderIntrinsicWidth="400" placeholderIntrinsicHeight="21" translatesAutoresizingMaskIntoConstraints="NO" id="6AK-0c-x2y" customClass="DSFLabelledTextField" customModule="DSFLabelledTextField">
-                                        <rect key="frame" x="15" y="29" width="400" height="21"/>
+                                        <rect key="frame" x="18" y="29" width="400" height="21"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="Green placeholder string" drawsBackground="YES" id="8fB-x9-aWK">
                                             <font key="font" usesAppearanceFont="YES"/>
                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -753,7 +753,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </textField>
                                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="500" placeholderIntrinsicWidth="400" placeholderIntrinsicHeight="21" translatesAutoresizingMaskIntoConstraints="NO" id="59N-t3-eAG" customClass="DSFLabelledTextField" customModule="DSFLabelledTextField">
-                                        <rect key="frame" x="15" y="0.0" width="400" height="21"/>
+                                        <rect key="frame" x="18" y="0.0" width="400" height="21"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="Blue placeholder string" drawsBackground="YES" id="xw6-g2-YRB">
                                             <font key="font" usesAppearanceFont="YES"/>
                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -1078,7 +1078,7 @@
                                 </customSpacing>
                             </stackView>
                             <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="5" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZN3-fc-dWP">
-                                <rect key="frame" x="370" y="217" width="80" height="160"/>
+                                <rect key="frame" x="376" y="217" width="80" height="160"/>
                                 <subviews>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="2iG-x5-Grt">
                                         <rect key="frame" x="-2" y="144" width="66" height="16"/>
@@ -1244,7 +1244,7 @@
                                 </customSpacing>
                             </stackView>
                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="D4Q-fy-KHq" customClass="DSFLabelledTextField" customModule="DSFLabelledTextField">
-                                <rect key="frame" x="20" y="112" width="430" height="87"/>
+                                <rect key="frame" x="20" y="112" width="436" height="87"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="87" id="2r4-zY-KBI"/>
                                 </constraints>
@@ -1267,7 +1267,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="3" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qgx-5f-3fU">
-                                <rect key="frame" x="20" y="80" width="430" height="14"/>
+                                <rect key="frame" x="20" y="80" width="436" height="14"/>
                                 <subviews>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="WVx-xp-JVj">
                                         <rect key="frame" x="-2" y="0.0" width="84" height="14"/>
@@ -1286,10 +1286,10 @@
                                 </customSpacing>
                             </stackView>
                             <stackView distribution="fillProportionally" orientation="horizontal" alignment="centerY" spacing="12" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XPO-mz-jd5">
-                                <rect key="frame" x="20" y="51" width="430" height="21"/>
+                                <rect key="frame" x="20" y="51" width="436" height="21"/>
                                 <subviews>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Lfh-cP-dhL">
-                                        <rect key="frame" x="-2" y="2" width="63" height="18"/>
+                                        <rect key="frame" x="-2" y="2" width="67" height="18"/>
                                         <buttonCell key="cell" type="check" title="Enable" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="iIx-qF-yfh">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="system"/>
@@ -1299,7 +1299,7 @@
                                         </connections>
                                     </button>
                                     <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="TLr-zR-OLf" customClass="DSFLabelledTextField" customModule="DSFLabelledTextField">
-                                        <rect key="frame" x="71" y="0.0" width="359" height="21"/>
+                                        <rect key="frame" x="77" y="0.0" width="359" height="21"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="vT8-Ej-NjQ">
                                             <font key="font" metaFont="system"/>
                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -1317,7 +1317,7 @@
                                                 <color key="value" name="systemIndigoColor" catalog="System" colorSpace="catalog"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="color" keyPath="labelForegroundColor">
-                                                <color key="value" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>

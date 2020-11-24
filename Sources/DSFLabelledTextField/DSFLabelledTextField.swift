@@ -60,7 +60,7 @@ private let alphaValueForDisabled: CGFloat = 0.4
 	}
 
 	/// The color of the text for the label
-	@IBInspectable public var labelForegroundColor = NSColor.secondaryLabelColor {
+	@IBInspectable public var labelForegroundColor: NSColor = NSColor.secondaryLabelColor {
 		didSet {
 			self.textLabel.textColor = self.labelForegroundColor
 			self.needsDisplay = true
@@ -68,7 +68,7 @@ private let alphaValueForDisabled: CGFloat = 0.4
 	}
 
 	/// The background color for the label
-	@IBInspectable public var labelBackgroundColor = NSColor.windowBackgroundColor {
+	@IBInspectable public var labelBackgroundColor: NSColor = NSColor.windowBackgroundColor {
 		didSet {
 			self.customCell.labelBackgroundColor = self.labelBackgroundColor
 			self.needsDisplay = true
@@ -152,6 +152,7 @@ private let alphaValueForDisabled: CGFloat = 0.4
 		x.textColor = NSColor.secondaryLabelColor
 		x.alignment = .center
 		x.translatesAutoresizingMaskIntoConstraints = false
+		x.userInterfaceLayoutDirection = self.userInterfaceLayoutDirection
 		return x
 	}()
 }
@@ -319,13 +320,6 @@ private class DSFPlainTextFieldCell: NSTextFieldCell {
 	fileprivate var roundedEdges: Bool = true
 	fileprivate var labelBackgroundColor = NSColor.windowBackgroundColor
 
-	/// The label background color, taking into account label state
-	@inlinable var currentLabelBackgroundColor: NSColor {
-		return isEnabled ?
-			self.labelBackgroundColor :
-			self.labelBackgroundColor.withAlphaComponent(alphaValueForDisabled)
-	}
-
 	private func tweak(_ rect: CGRect) -> NSRect {
 		let offset: CGFloat = self.labelWidth
 		var newRect = rect
@@ -358,52 +352,128 @@ private class DSFPlainTextFieldCell: NSTextFieldCell {
 		super.edit(withFrame: self.tweak(rect), in: controlView, editor: textObj, delegate: delegate, event: event)
 	}
 
-	override func draw(withFrame cellFrame: NSRect, in controlView: NSView) {
-		NSColor.gridColor.setStroke()
-		var bg = self.backgroundColor ?? NSColor.placeholderTextColor
-		if !isEnabled {
-			bg = bg.withAlphaComponent(alphaValueForDisabled)
-		}
-		bg.setFill()
+	static let DarkEnabledBorderColor                = NSColor(calibratedWhite: 1.0, alpha: 0.15)
+	static let DarkNotEnabledBorderColor             = NSColor(calibratedWhite: 1.0, alpha: 0.05)
+	static let LightEnabledBorderColor            = NSColor(calibratedWhite: 0.5, alpha: 0.4)
+	static let LightNotEnabledBorderColor         = NSColor(calibratedWhite: 0.5, alpha: 0.3)
 
-		let pth: NSBezierPath
-		if self.roundedEdges {
-			pth = NSBezierPath(roundedRect: cellFrame.insetBy(dx: 1, dy: 1), xRadius: 2, yRadius: 2)
-			pth.lineWidth = 1.5
+	static let HighContrastBorderColor = NSColor.textColor
+
+	@inlinable var borderColor: NSColor {
+
+		if Accessibility.increaseContrast {
+			return isEnabled ? Self.HighContrastBorderColor : Self.HighContrastBorderColor.withAlphaComponent(0.4)
+		}
+
+		if controlView?.isDarkMode ?? false {
+			if isEnabled {
+				return Self.DarkEnabledBorderColor
+			}
+			else {
+				return Self.DarkNotEnabledBorderColor
+			}
 		}
 		else {
-			pth = NSBezierPath(rect: cellFrame.insetBy(dx: 1, dy: 1))
-			pth.lineWidth = 1
+			if isEnabled {
+				return Self.LightEnabledBorderColor
+			}
+			else {
+				return Self.LightNotEnabledBorderColor
+			}
 		}
-		pth.stroke()
-		pth.fill()
+	}
 
-		pth.setClip()
+	static let DarkEnabledBackgroundColor     = NSColor.init(calibratedWhite: 1.0, alpha: 0.075)
+	static let DarkNotEnabledBackgroundColor  = NSColor.init(calibratedWhite: 0.3, alpha: 0.04)
+	static let LightEnabledBackgroundColor    = NSColor.white
+	static let LightNotEnabledBackgroundColor = NSColor(calibratedWhite: 1.0, alpha: 0.3)
 
-		if self.drawsLabelBackground {
-			self.currentLabelBackgroundColor.setFill()
+	@inlinable var cellBackgroundColor: NSColor {
+		if controlView?.isDarkMode ?? false {
+			if isEnabled {
+				return Self.DarkEnabledBackgroundColor
+			}
+			else {
+				return Self.DarkNotEnabledBackgroundColor
+			}
+		}
+		else {
+			if isEnabled {
+				return Self.LightEnabledBackgroundColor
+			}
+			else {
+				return Self.LightNotEnabledBackgroundColor
+			}
+		}
+	}
 
-			let bit = cellFrame.divided(
-				atDistance: self.labelWidth,
-				from: self.isRTL ? .maxXEdge : .minXEdge
-			).slice
-			bit.fill()
+	override func draw(withFrame cellFrame: NSRect, in controlView: NSView) {
 
-			let line = NSBezierPath()
-			line.move(to: NSPoint(x: bit.maxX.roundedToHalf, y: cellFrame.minY))
-			line.line(to: NSPoint(x: bit.maxX.roundedToHalf, y: cellFrame.maxY))
-			line.lineWidth = 0.5
-			line.stroke()
+		guard let field = self.controlView,
+			  let window = field.window else {
+			return
+		}
+
+		NSGraphicsContext.usingGraphicsState {
+
+
+			let darkMode = field.isDarkMode
+
+			self.borderColor.setStroke()
+			self.cellBackgroundColor.setFill()
+
+			let pth: NSBezierPath
+			if self.roundedEdges {
+				pth = NSBezierPath(roundedRect: cellFrame.insetBy(dx: 1, dy: 1), xRadius: 2, yRadius: 2)
+				pth.lineWidth = 1
+			}
+			else {
+				pth = NSBezierPath(rect: cellFrame.insetBy(dx: 1, dy: 1))
+				pth.lineWidth = 1
+			}
+			pth.stroke()
+			pth.fill()
+
+			let inset: CGFloat = darkMode ? 1.5 : 1.0
+			let rad: CGFloat = darkMode ? 1 : 2.0
+			let fillPth = NSBezierPath(roundedRect: cellFrame.insetBy(dx: inset, dy: inset), xRadius: rad, yRadius: rad)
+
+			fillPth.setClip()
+
+			if self.drawsLabelBackground {
+
+				// Do our line drawing without antialiasing.
+
+
+				self.labelBackgroundColor.setFill()
+
+				let split = cellFrame.divided(atDistance: self.labelWidth, from: self.isRTL ? .maxXEdge : .minXEdge)
+				//let split = cellFrame.divided(atDistance: self.labelWidth, from: .minXEdge)
+				var labelRect = split.slice
+
+				// Align the labelrect to pixels
+				labelRect = window.backingAlignedRect(
+					labelRect,
+					options: [.alignMaxXInward, .alignMinXOutward, .alignMinYOutward, .alignMaxYInward])
+
+				labelRect.fill()
+
+				self.borderColor.setStroke()
+
+				NSGraphicsContext.current?.withoutAntialias {
+
+					let inset = self.isRTL ? self.labelWidth : 0
+					let line = NSBezierPath()
+					line.move(to: NSPoint(x: labelRect.maxX - inset, y: cellFrame.minY))
+					line.line(to: NSPoint(x: labelRect.maxX - inset, y: cellFrame.maxY))
+					line.close()
+					line.lineWidth = darkMode ? 1 : 0.5
+					line.stroke()
+				}
+			}
 		}
 
 		self.drawInterior(withFrame: self.tweak(cellFrame), in: controlView)
-	}
-}
-
-private extension CGFloat {
-	var roundedToHalf: CGFloat {
-		let s = self.rounded(.awayFromZero)
-		return s < 0 ? s + 0.5 : s - 0.5
 	}
 }
 
