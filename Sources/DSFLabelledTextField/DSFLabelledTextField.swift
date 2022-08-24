@@ -27,6 +27,7 @@
 #if os(macOS)
 
 import AppKit
+import DSFAppearanceManager
 
 // The alpha value used for drawing when the control is disabled.
 private let alphaValueForDisabled: CGFloat = 0.4
@@ -361,7 +362,7 @@ private class DSFPlainTextFieldCell: NSTextFieldCell {
 
 	@inlinable var borderColor: NSColor {
 
-		if Accessibility.increaseContrast {
+		if DSFAppearanceManager.IncreaseContrast {
 			return isEnabled ? Self.HighContrastBorderColor : Self.HighContrastBorderColor.withAlphaComponent(0.4)
 		}
 
@@ -414,9 +415,7 @@ private class DSFPlainTextFieldCell: NSTextFieldCell {
 			return
 		}
 
-		NSGraphicsContext.usingGraphicsState {
-
-
+		NSGraphicsContext.usingGraphicsState { ctx in
 			let darkMode = field.isDarkMode
 
 			self.borderColor.setStroke()
@@ -444,7 +443,6 @@ private class DSFPlainTextFieldCell: NSTextFieldCell {
 
 				// Do our line drawing without antialiasing.
 
-
 				self.labelBackgroundColor.setFill()
 
 				let split = cellFrame.divided(atDistance: self.labelWidth, from: self.isRTL ? .maxXEdge : .minXEdge)
@@ -460,8 +458,9 @@ private class DSFPlainTextFieldCell: NSTextFieldCell {
 
 				self.borderColor.setStroke()
 
-				NSGraphicsContext.current?.withoutAntialias {
+				// Draw the label separator without antialiasing so we sit on pixel boundaries
 
+				ctx.disablingAntialiasing {
 					let inset = self.isRTL ? self.labelWidth : 0
 					let line = NSBezierPath()
 					line.move(to: NSPoint(x: labelRect.maxX - inset, y: cellFrame.minY))
